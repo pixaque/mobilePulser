@@ -1,22 +1,30 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import {useEffect} from 'react';
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonRouterOutlet } from '@ionic/react';
+import {Route} from 'react-router';
 import ExploreContainer from '../components/ExploreContainer';
+import {useHistory, useLocation} from 'react-router-dom';
 import './Home.css';
 
 const Home: React.FC = () => {
+  let location = useLocation();
+  //console.log(location);
+
   return (
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>Blank</IonTitle>
+          <IonTitle>Simple Diagnoses</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
         <IonHeader collapse="condense">
           <IonToolbar>
-            <IonTitle size="large">Blank</IonTitle>
+            <IonTitle size="large">Simple Diagnoses { location.pathname }</IonTitle>
           </IonToolbar>
         </IonHeader>
-        <ExploreContainer />
+        <div className='margin'>
+          <ExploreContainer />
+        </div>
       </IonContent>
     </IonPage>
   );
